@@ -16,7 +16,7 @@ void (execute(char *file_name))
 	unsigned int line_number = 0;
 	char *opcode;
 	char *arg = NULL;
-	int value;
+	int *value;
 
 	if (file == NULL)
 	{
