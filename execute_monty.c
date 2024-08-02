@@ -16,11 +16,11 @@ void (execute(char *file_name))
 	unsigned int line_number = 0;
 	char *opcode;
 	char *arg;
-	int value = atoi(arg);
+	int value;
 
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: can't open file %s\n, file_name");
+		fprintf(stderr, "Error: can't open file %s\n", file_name);
 		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&line, &len, file)) != -1)
@@ -35,9 +35,10 @@ void (execute(char *file_name))
 			*arg = strtok(NULL, " \n\t");
 			if (arg == NULL || !isdigit(*arg))
 			{
-				fprint(stderr, "L%u: usage: push integer\n", line_number);
+				fprintf(stderr, "L%u: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
+			value = atoi(arg);
 			push(&stack, line_number, value);
 		}
 		else if (strcmp(opcode, "pall") == 0)

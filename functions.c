@@ -23,14 +23,12 @@ void free_stack(stack_t *stack)
  *
  */
 
-void push(**stack_t, unsigned int line_number, int n)
+void push(stack_t **stack, unsigned int line_number, int n)
 {
-	stack_t *stack = NULL;
-
 	stack_t *new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		fprint(stderr, "Error, Error, malloc bad\n");
+		fprintf(stderr, "Error, Error, malloc bad\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -39,7 +37,7 @@ void push(**stack_t, unsigned int line_number, int n)
 	new_node->next = *stack;
 
 	if (*stack != NULL)
-		(*stack).prev = new_node;
+		(*stack)->prev = new_node;
 
 	*stack = new_node;
 }
