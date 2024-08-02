@@ -19,7 +19,7 @@ void (execute(char *file_name))
 
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: can't open file %s\n", file_name);
+		fprintf(stderr, "Error: Can't open file %s\n", file_name);
 		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&line, &len, file)) != -1)
