@@ -15,7 +15,7 @@ void (execute(char *file_name))
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 	char *opcode;
-	char *arg;
+	char *arg = NULL;
 	int value;
 
 	if (file == NULL)
@@ -47,7 +47,7 @@ void (execute(char *file_name))
 		}
 		else
 		{
-			fprint(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 			exit(EXIT_FAILURE);
 		}
 	}
