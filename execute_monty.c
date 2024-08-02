@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * 
+ */
+
+
+
 void (execute(char *file_name))
 {
 	FILE *file = fopen(file_name, "r");
@@ -9,11 +15,12 @@ void (execute(char *file_name))
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 	char *opcode;
+	char *arg;
 	int value = atoi(arg);
 
 	if (file == NULL)
 	{
-		fprint(stderr, "Error: can't open file %s\n, file_name");
+		fprintf(stderr, "Error: can't open file %s\n, file_name");
 		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&line, &len, file)) != -1)
@@ -23,9 +30,9 @@ void (execute(char *file_name))
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
-		if (strcomp(opcode, "push") == 0)
+		if (strcmp(opcode, "push") == 0)
 		{
-			char *arg = strtok(NULL, " \n\t");
+			*arg = strtok(NULL, " \n\t");
 			if (arg == NULL || !isdigit(*arg))
 			{
 				fprint(stderr, "L%u: usage: push integer\n", line_number);
