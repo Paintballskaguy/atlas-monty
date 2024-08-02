@@ -1,5 +1,5 @@
-#ifndef FULL_MONTY_H
-#define FULL_MONTY_H
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -42,4 +42,4 @@ void pall(stack_t **stack, unsigned int line_number);
 void execute(char *file_name);
 void free_stack(stack_t *stack);
 
-#endif /*FULL_MONTY_H*/
+#endif /*MONTY_H*/

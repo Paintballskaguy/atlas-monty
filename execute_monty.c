@@ -1,4 +1,4 @@
-#include <full_monty.h>
+#include <monty.h>
 
 void (execute(char *file_name))
 {
