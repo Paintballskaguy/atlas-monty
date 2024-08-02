@@ -16,7 +16,6 @@ void (execute(char *file_name))
 	unsigned int line_number = 0;
 	char *opcode;
 	char *arg = NULL;
-	int *value;
 
 	if (file == NULL)
 	{
@@ -38,7 +37,7 @@ void (execute(char *file_name))
 				fprintf(stderr, "L%u: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
-			value = atoi(arg);
+			int value = atoi(arg);
 			push(&stack, line_number, value);
 		}
 		else if (strcmp(opcode, "pall") == 0)
