@@ -31,7 +31,7 @@ void (execute(char *file_name))
 
 		if (strcmp(opcode, "push") == 0)
 		{
-			*arg = strtok(NULL, " \n\t");
+			arg = strtok(NULL, " \n\t");
 			if (arg == NULL || !isdigit(*arg))
 			{
 				fprintf(stderr, "L%u: usage: push integer\n", line_number);
