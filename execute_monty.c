@@ -1,12 +1,34 @@
 #include "monty.h"
 
 /**
- * 
+ *
  */
 
+int is_integer(const char *str)
+{
+	if (*str == '-' || *str == '+')
+	{
+		str++;
+	}
 
+	if (*str == '\0') // Check if there are digits after +/-
+	{
+		return 0;
+	}
 
-void (execute(char *file_name))
+	while (*str)
+	{
+		if (!isdigit(*str))
+		{
+			return 0;
+		}
+		str++;
+	}
+
+	return 1;
+}
+
+void(execute(char *file_name))
 {
 	FILE *file = fopen(file_name, "r");
 	char *line = NULL;
