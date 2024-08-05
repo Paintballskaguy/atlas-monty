@@ -26,7 +26,7 @@ void (execute(char *file_name))
 	{
 		line_number++;
 		opcode = strtok(line, " \n\t");
-		if (opcode == NULL || opcode[0] == '#')
+		if (opcode == NULL)
 			continue;
 
 		if (strcmp(opcode, "push") == 0)
