@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * 
+ *
  *
  */
 
@@ -17,9 +17,8 @@ void free_stack(stack_t *stack)
 	}
 }
 
-
 /**
- * 
+ *
  *
  */
 
@@ -43,9 +42,8 @@ void push(stack_t **stack, unsigned int line_number, int n)
 	(void)line_number;
 }
 
-
 /**
- * 
+ *
  */
 
 void pall(stack_t **stack, unsigned int line_number)
@@ -60,7 +58,6 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 }
 
-
 void pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
@@ -70,7 +67,6 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
-
 
 void pop(stack_t **stack, unsigned int line_number)
 {
@@ -87,4 +83,44 @@ void pop(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 
 	free(temp);
+}
+
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first, *second;
+	int temp;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	first = *stack;
+	second = (*stack)->next;
+	temp = first->n;
+	first->n = second->n;
+	second->n = temp;
+}
+
+void add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first, *second;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	first = *stack;
+	second = (*stack)->next;
+	second->n += first->n;
+	pop(stack, line_number); // Remove the top element after adding
+}
+
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;	   // Suppress unused parameter warning
+	(void)line_number; // Suppress unused parameter warning
 }
