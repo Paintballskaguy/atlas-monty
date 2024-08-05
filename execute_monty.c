@@ -66,6 +66,10 @@ void(execute(char *file_name))
 		{
 			pall(&stack, line_number);
 		}
+		else if (strcmp(opcode, "pint") == 0)
+		{
+			pint(&stack, line_number);
+		}
 		else
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);

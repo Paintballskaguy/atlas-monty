@@ -40,6 +40,7 @@ typedef struct instruction_s
 /* Function Prototypes */
 void push(stack_t **stack, unsigned int line_number, int n);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 void execute(char *file_name);
 void free_stack(stack_t *stack);
 int is_integer(const char *str);
